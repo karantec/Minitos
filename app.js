@@ -7,6 +7,7 @@ const GalleryRoutes=require('./routes/Gallery.route');
 const CrouselRoutes=require('./routes/Crousel.route');
 const BookingRoutes=require('./routes/Booking.routes');
 const chefRoutes=require('./routes/Chef.route');
+const PaymentRoutes=require('./routes/payment.routes');
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 require('dotenv').config();
@@ -28,6 +29,7 @@ app.use('/gallery',GalleryRoutes)
 app.use('/crousel', CrouselRoutes)
 app.use('/chef',chefRoutes);
 app.use('/booking',BookingRoutes)
+app.use('/order',PaymentRoutes)
 app.use('/api', require('./routes/api.route'));
 
 app.use((req, res, next) => {

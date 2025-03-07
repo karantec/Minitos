@@ -6,15 +6,12 @@ const Booking=require('../models/Booking.Model');
 const createBooking = async (req, res) => {
     try {
         // Ensure the user is authenticated
-        if (!req.user || !req.user.userId) {
-            return res.status(403).json({ message: "Unauthorized: Invalid token" });
-        }
-
-        const { chef, bookingDate, status, notes } = req.body;
+   
+        const {user,chef, bookingDate, status, notes } = req.body;
 
         // Create a new booking
-        const newBooking = new Booking({
-            user: req.user.userId,  // Use authenticated user's ID
+        const newBooking = new Booking({ 
+            user, // Use authenticated user's ID
             chef,
             bookingDate,
             status,
