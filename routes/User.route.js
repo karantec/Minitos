@@ -1,9 +1,9 @@
-const { UserSignup, UserLogin } = require('../controller/User.controller');
+const {  createFormData, getAllFormData } = require('../controller/User.controller');
 
 const router = require('express').Router();
 
-router.post('/signup', UserSignup)
-router.post('/login',UserLogin )
+router.post('/create', createFormData)
+router.get('/get',getAllFormData )
  
 
 
